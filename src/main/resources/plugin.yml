@@ -1,0 +1,8 @@
+name: Lobby
+version: '${version}'
+main: me.blurmit.lobby.Lobby
+api-version: 1.16
+authors: [ Blurmit ]
+description: A simple lobby core
+softdepend:
+  - Basics

@@ -1,0 +1,56 @@
+# Weather to automatically enable fly mode for joining players
+# WARNING: If you enable this setting, the player will no longer be able to double jump.
+Auto-Fly-Permission: basics.command.fly
+Auto-Toggle-Fly: true
+
+# Weather to enable lobby double jump or not.
+Double-Jump: true
+
+Servers-Title: "&b&lServers"
+Servers-Slots: 27
+Servers:
+  Skyblock:
+    Name: "&b&lSkyblock"
+    Material: OAK_SAPLING
+    Description:
+       - "&7Spawn on an island with limited"
+       - "&7resources. As you progress"
+       - "&7you will grow your lonely"
+       - "&7expanse into your own paradise"
+       - "&r"
+       - "&7Version: &b1.8 - 1.19.3"
+       - "&r"
+       - "&aServer online"
+       - "&r"
+       - "&d&lPlayers: &b0/100"
+       - "&d&lQueued: &b0"
+       - "&r"
+       - "&bClick to join!"
+    Command: join Skyblock
+    Slot: 11
+  Survival:
+    Name: "&a&lSurvival"
+    Material: GRASS_BLOCK
+    Description: |-
+       - "&7Vanilla Minecraft with a twist"
+       - "&r"
+       - "&7Version: &b1.8 - 1.19.3"
+       - "&r"
+       - "&aServer online"
+       - "&r"
+       - "&d&lPlayers: &b0/100"
+       - "&d&lQueued: &b0"
+       - "&r"
+       - "&bClick to join!"
+    Command: join Survival
+    Slot: 13
+  Coming-Soon:
+    Name: "&c&lComing Soon..."
+    Material: BEDROCK
+    Description:
+      - "&7This server is still in development."
+    Slot: 15
+
+Messages:
+  No-Permission: "&fUnknown command. Type \"/help\" for help."
+  Only-Players: "&cOnly players can execute this command."
