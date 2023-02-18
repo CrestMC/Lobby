@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'me.blurmit'
-version = '1.0'
+version = '1.34'
 
 repositories {
     mavenCentral()
@@ -16,12 +16,12 @@ repositories {
         url = 'https://oss.sonatype.org/content/groups/public/'
     }
     flatDir {
-        dirs './build/libs'
+        dirs './libs'
     }
 }
 
 dependencies {
-    compileOnly 'me.blurmit:basics-bukkit:1.0'
+    compileOnly 'me.blurmit:Basics:1.0'
     compileOnly 'org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT'
 }
 

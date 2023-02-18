@@ -2,6 +2,8 @@ package me.blurmit.lobby;
 
 import me.blurmit.lobby.command.CommandManager;
 import me.blurmit.lobby.listeners.DoubleJumpListener;
+import me.blurmit.lobby.listeners.ItemDropListener;
+import me.blurmit.lobby.listeners.ItemJoinListener;
 import me.blurmit.lobby.menu.MenuManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -24,6 +26,8 @@ public final class Lobby extends JavaPlugin {
 
         getLogger().info("Registering listeners...");
         new DoubleJumpListener(this);
+        new ItemDropListener(this);
+        new ItemJoinListener(this);
 
         getLogger().info(getName() + " has been successfully enabled.");
     }

@@ -6,6 +6,20 @@ Auto-Toggle-Fly: true
 # Weather to enable lobby double jump or not.
 Double-Jump: true
 
+# Weather to allow players to drop items in the lobby or not.
+Allow-Item-Drops: false
+
+# Weather to give players the join items below or not
+Give-Join-Items: true
+Join-Items:
+  Server-Selector:
+    Name: "&bServer Selector &7(Right-click)"
+    Lore:
+      - "&7Opens the server selector menu."
+    Material: COMPASS
+    Slot: 0
+    Command: servers
+
 Servers-Title: "&b&lServers"
 Servers-Slots: 27
 Servers:
