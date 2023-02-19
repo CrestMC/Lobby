@@ -12,6 +12,8 @@ import org.bukkit.event.block.Action;
 import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.inventory.ItemStack;
+import org.bukkit.inventory.meta.ItemMeta;
+import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 
 import java.util.HashMap;
@@ -82,9 +84,7 @@ public class ItemJoinListener implements Listener {
             return;
         }
 
-        boolean isItem = items.values().stream().anyMatch(item::equals);
-
-        if (!isItem) {
+        if (!isItem(item)) {
             return;
         }
 
@@ -110,9 +110,41 @@ public class ItemJoinListener implements Listener {
         return items;
     }
 
-    private boolean isItem(ItemStack itemStack, String keyName) {
-        NamespacedKey key = new NamespacedKey("item", keyName);
-        return itemStack.getItemMeta().getPersistentDataContainer().has(key, PersistentDataType.BYTE);
+    private boolean isItem(ItemStack item) {
+        ItemMeta itemMeta = item.getItemMeta();
+
+        if (itemMeta == null) {
+            return false;
+        }
+
+        PersistentDataContainer container = itemMeta.getPersistentDataContainer();
+        NamespacedKey itemKey = container.getKeys().stream()
+                .filter(key -> key.getNamespace().equals("item"))
+                .findAny()
+                .orElse(null);
+
+        if (itemKey == null) {
+            return false;
+        }
+
+        return items.values().stream().anyMatch(testItem -> {
+            ItemMeta testMeta = testItem.getItemMeta();
+
+            if (testMeta == null) {
+                return false;
+            }
+
+            NamespacedKey testKey = testMeta.getPersistentDataContainer().getKeys().stream()
+                    .filter(key -> key.getNamespace().equals("item"))
+                    .findAny()
+                    .orElse(null);
+
+            if (testKey == null) {
+                return false;
+            }
+
+            return testKey.getKey().equals(itemKey.getKey());
+        });
     }
 
 }

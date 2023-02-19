@@ -56,6 +56,10 @@ public class ItemBuilder {
         });
     }
 
+    public ItemBuilder setMaterial(Material material) {
+        return consume(item -> item.setType(material));
+    }
+
     public ItemBuilder setLore(String... lore) {
         return consumeMeta(meta -> setLore(Arrays.asList(lore)));
     }
