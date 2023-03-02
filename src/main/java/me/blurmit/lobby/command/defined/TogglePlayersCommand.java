@@ -57,9 +57,7 @@ public class TogglePlayersCommand extends CommandBase implements Listener {
             return true;
         }
 
-        // TODO: Store this in a map instead of getting the item material
-        // This is a terrible way of doing this, but I REALLY don't feel like storing the data in a Map right now
-        if (visibilityItem.getType().equals(Material.LIME_DYE)) {
+        if (!hasPlayersHidden.contains(player.getUniqueId())) {
             plugin.getServer().getOnlinePlayers().forEach(onlinePlayer -> player.hidePlayer(plugin, onlinePlayer));
             hasPlayersHidden.add(player.getUniqueId());
             ItemBuilder.edit(visibilityItem).setMaterial(Material.GRAY_DYE).setName("&aShow Players &7(Right-click)");

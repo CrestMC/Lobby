@@ -1,6 +1,7 @@
 package me.blurmit.lobby.listeners;
 
 import me.blurmit.lobby.Lobby;
+import org.bukkit.GameMode;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerDropItemEvent;
@@ -18,7 +19,8 @@ public class ItemDropListener implements Listener {
     @EventHandler
     public void onPlayerDropItem(PlayerDropItemEvent event) {
         boolean canDropItems = plugin.getConfig().getBoolean("Allow-Item-Drops");
-        event.setCancelled(!canDropItems);
+        boolean isGamemodeCreate = event.getPlayer().getGameMode() == GameMode.CREATIVE;
+        event.setCancelled(!canDropItems && !isGamemodeCreate);
     }
 
 }
